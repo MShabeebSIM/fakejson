@@ -1,0 +1,423 @@
+{
+  "data": {
+    "appData": { "defaultLanguageCode": "en", "defaultRegionCode": "US" },
+    "languages": [
+      { "languageCode": "en", "regionCode": "US", "language": "English" },
+      { "languageCode": "fr", "regionCode": "FR", "language": "French" },
+      {
+        "languageCode": "ar",
+        "regionCode": "AE",
+        "language": "Arabic Emirates"
+      }
+    ],
+    "translations": [
+      {
+        "languageCode": "en",
+        "regionCode": "US",
+        "componentName": "home",
+        "translationKey": "title",
+        "translationValue": "hello"
+      },
+      {
+        "languageCode": "en",
+        "regionCode": "US",
+        "componentName": "home",
+        "translationKey": "theme_button",
+        "translationValue": "theme"
+      },
+      {
+        "languageCode": "fr",
+        "regionCode": "FR",
+        "componentName": "home",
+        "translationKey": "title",
+        "translationValue": "hello_french"
+      },
+      {
+        "languageCode": "fr",
+        "regionCode": "FR",
+        "componentName": "home",
+        "translationKey": "theme_button",
+        "translationValue": "theme_french"
+      },
+      {
+        "languageCode": "ar",
+        "regionCode": "AE",
+        "componentName": "dashboard",
+        "translationKey": "bar_chart",
+        "translationValue": "شريط الرسم البياني"
+      }
+    ],
+    "theme": { "light": {}, "dark": {} }
+  },
+  "userData": {
+    "menu": [
+      {
+        "displayName": "Home",
+        "icon": "home_outline",
+        "route": "/home",
+        "order": 1
+      },
+      {
+        "displayName": "Reports",
+        "icon": "document_text_outline",
+        "route": "",
+        "order": 2,
+        "subMenu": [
+          {
+            "displayName": "Holdings",
+            "icon": "",
+            "route": "reports/holdings",
+            "order": 1
+          },
+          {
+            "displayName": "Realized Gains",
+            "icon": "",
+            "route": "reports/realizedgains",
+            "order": 2
+          },
+          {
+            "displayName": "Transactions",
+            "icon": "",
+            "route": "reports/transactions",
+            "order": 3
+          },
+          {
+            "displayName": "Performance review",
+            "icon": "",
+            "route": "reports/performanceoverview",
+            "order": 4
+          }
+        ]
+      },
+      {
+        "displayName": "Documents",
+        "icon": "documents_outline",
+        "route": "/documents",
+        "order": 3
+      },
+      {
+        "displayName": "Messages",
+        "icon": "chatbubbles_outline",
+        "route": "/messages",
+        "order": 4
+      },
+      {
+        "displayName": "Settings",
+        "icon": "settings_outline",
+        "route": "/settings",
+        "order": 5
+      }
+    ],
+    "widgets": [
+      {
+        "displayName": "dashboard_bar_chart",
+        "type": "bar",
+        "order": 1,
+        "tag": "tag1",
+        "fields": [
+          {
+            "name": "AssetClassName",
+            "displayName": "Asset Class",
+            "type": "String"
+          },
+          { "name": "CountryName", "displayName": "Country", "type": "String" },
+          {
+            "name": "IndustrySectorName",
+            "displayName": "Sector",
+            "type": "String"
+          },
+          {
+            "name": "LocalCurrencyName",
+            "displayName": "Currency",
+            "type": "String"
+          },
+          {
+            "name": "MarketValue",
+            "displayName": "MarketValue_Value",
+            "type": "double"
+          }
+        ],
+        "filter": {
+          "name": "Asset Filter",
+          "default": "AssetClassName",
+          "items": [
+            { "AssetClass": "AssetClassName" },
+            { "Country": "CountryName" },
+            { "Sector": "IndustrySectorName" },
+            { "Currency": "LocalCurrencyName" }
+          ]
+        },
+        "api": {
+          "endpoint": "http://localhost:8080/bar",
+          "auth": {
+            "type": "api_key",
+            "credentials": { "key": "", "secret": "" }
+          },
+          "httpMethod": "get",
+          "bodyParams": {
+            "param1Key": "$$key1",
+            "param2Key": "$$key2",
+            "param3Key": "constant string",
+            "param4Key": 1
+          },
+          "queryParams": {
+            "param1Key": "$$key1",
+            "param2Key": "$$key2",
+            "param3Key": "constant string",
+            "param4Key": 1
+          }
+        }
+      },
+      {
+        "displayName": "Line Chart",
+        "type": "line",
+        "order": 2,
+        "tag": "tag1",
+        "fields": [
+          {
+            "name": "AssetClassName",
+            "displayName": "Asset Class",
+            "type": "String"
+          },
+          { "name": "CountryName", "displayName": "Country", "type": "String" },
+          {
+            "name": "IndustrySectorName",
+            "displayName": "Sector",
+            "type": "String"
+          },
+          {
+            "name": "LocalCurrencyName",
+            "displayName": "Currency",
+            "type": "String"
+          },
+          {
+            "name": "MarketValue",
+            "displayName": "MarketValue_Value",
+            "type": "double"
+          }
+        ],
+        "filter": {
+          "name": "Asset Filter",
+          "default": "IndustrySectorName",
+          "items": [
+            { "AssetClass": "AssetClassName" },
+            { "Country": "CountryName" },
+            { "Sector": "IndustrySectorName" },
+            { "Currency": "LocalCurrencyName" }
+          ]
+        },
+        "api": {
+          "endpoint": "http://localhost:8080/bar",
+          "auth": {
+            "type": "bearer",
+            "credentials": { "headerKey": "" }
+          },
+          "httpMethod": "get",
+          "bodyParams": {
+            "param1Key": "$$key1",
+            "param2Key": "$$key2",
+            "param3Key": "constant string",
+            "param4Key": 1
+          },
+          "queryParams": {
+            "param1Key": "$$key1",
+            "param2Key": "$$key2",
+            "param3Key": "constant string",
+            "param4Key": 1
+          }
+        }
+      },
+      {
+        "displayName": "Pie Chart",
+        "type": "pie",
+        "order": 3,
+        "tag": "tag1",
+        "fields": [
+          {
+            "name": "AssetClassName",
+            "displayName": "Asset Class",
+            "type": "String"
+          },
+          { "name": "CountryName", "displayName": "Country", "type": "String" },
+          {
+            "name": "IndustrySectorName",
+            "displayName": "Sector",
+            "type": "String"
+          },
+          {
+            "name": "LocalCurrencyName",
+            "displayName": "Currency",
+            "type": "String"
+          },
+          {
+            "name": "MarketValue",
+            "displayName": "MarketValue_Value",
+            "type": "double"
+          }
+        ],
+        "filter": {
+          "name": "Asset Filter",
+          "default": "AssetClassName",
+          "items": [
+            { "AssetClass": "AssetClassName" },
+            { "Country": "CountryName" },
+            { "Sector": "IndustrySectorName" },
+            { "Currency": "LocalCurrencyName" }
+          ],
+          "groupByValue": "MarketValue"
+        },
+        "api": {
+          "endpoint": "http://localhost:8080/bar",
+          "auth": {
+            "type": "token",
+            "authEndpoint": {
+              "endpoint": "http://localhost:8081/login",
+              "credentials": { "username": "", "password": "" }
+            },
+            "credentials": { "headerKey": "" }
+          },
+          "httpMethod": "get",
+          "bodyParams": {
+            "param1Key": "$$key1",
+            "param2Key": "$$key2",
+            "param3Key": "constant string",
+            "param4Key": 1
+          },
+          "queryParams": {
+            "param1Key": "$$key1",
+            "param2Key": "$$key2",
+            "param3Key": "constant string",
+            "param4Key": 1
+          }
+        }
+      },
+      {
+        "displayName": "Donut Chart",
+        "type": "donut",
+        "order": 4,
+        "tag": "tag1",
+        "fields": [
+          {
+            "name": "AssetClassName",
+            "displayName": "Asset Class",
+            "type": "String"
+          },
+          { "name": "CountryName", "displayName": "Country", "type": "String" },
+          {
+            "name": "IndustrySectorName",
+            "displayName": "Sector",
+            "type": "String"
+          },
+          {
+            "name": "LocalCurrencyName",
+            "displayName": "Currency",
+            "type": "String"
+          },
+          {
+            "name": "MarketValue",
+            "displayName": "MarketValue_Value",
+            "type": "double"
+          }
+        ],
+        "filter": {
+          "name": "Asset Filter",
+          "default": "LocalCurrencyName",
+          "items": [
+            { "AssetClass": "AssetClassName" },
+            { "Country": "CountryName" },
+            { "Sector": "IndustrySectorName" },
+            { "Currency": "LocalCurrencyName" }
+          ],
+          "groupByValue": "MarketValue"
+        },
+        "api": {
+          "endpoint": "http://localhost:8080/bar",
+          "auth": {
+            "type": "token",
+            "authEndpoint": {
+              "endpoint": "http://localhost:8081/login",
+              "credentials": { "username": "", "password": "" }
+            },
+            "credentials": { "headerKey": "" }
+          },
+          "httpMethod": "get",
+          "bodyParams": {
+            "param1Key": "$$key1",
+            "param2Key": "$$key2",
+            "param3Key": "constant string",
+            "param4Key": 1
+          },
+          "queryParams": {
+            "param1Key": "$$key1",
+            "param2Key": "$$key2",
+            "param3Key": "constant string",
+            "param4Key": 1
+          }
+        }
+      },
+      {
+        "displayName": "Table Chart",
+        "type": "table",
+        "order": 5,
+        "tag": "tag1",
+        "fields": [
+          {
+            "name": "AssetClassName",
+            "displayName": "Asset Class",
+            "type": "String"
+          },
+          { "name": "CountryName", "displayName": "Country", "type": "String" },
+          {
+            "name": "IndustrySectorName",
+            "displayName": "Sector",
+            "type": "String"
+          },
+          {
+            "name": "LocalCurrencyName",
+            "displayName": "Currency",
+            "type": "String"
+          },
+          {
+            "name": "MarketValue",
+            "displayName": "MarketValue_Value",
+            "type": "double"
+          }
+        ],
+        "filter": {
+          "name": "Asset Filter",
+          "default": "CountryName",
+          "items": [
+            { "AssetClass": "AssetClassName" },
+            { "Country": "CountryName" },
+            { "Sector": "IndustrySectorName" },
+            { "Currency": "LocalCurrencyName" }
+          ]
+        },
+        "api": {
+          "endpoint": "http://localhost:8080/bar",
+          "auth": {
+            "type": "token",
+            "authEndpoint": {
+              "endpoint": "http://localhost:8081/login",
+              "credentials": { "username": "", "password": "" }
+            },
+            "credentials": { "headerKey": "" }
+          },
+          "httpMethod": "get",
+          "bodyParams": {
+            "param1Key": "$$key1",
+            "param2Key": "$$key2",
+            "param3Key": "constant string",
+            "param4Key": 1
+          },
+          "queryParams": {
+            "param1Key": "$$key1",
+            "param2Key": "$$key2",
+            "param3Key": "constant string",
+            "param4Key": 1
+          }
+        }
+      }
+    ]
+  }
+}
